@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data_theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prête-moi ta voix</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    
+  <header>
+    <nav>
+      <span class="logo">PMTV</span>
+      <button id="toggle-theme" title="Changer de thème">🌓</button>
+    </nav>
+  </header>
+
+  <main class="centered">
+    <h1>Prête-moi ta voix</h1>
+    <p class="subtitle">Un récit à travers les yeux de Gatien</p>
+    <a class="start-button" href="chapitre01.html">Commencer la lecture</a>
+  </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 </body>
 </html>
