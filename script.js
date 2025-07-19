@@ -37,3 +37,5 @@ window.addEventListener('beforeunload', () => {
   const current = window.location.pathname.split('/').pop();
   if (current !== 'index.html') {
     localStorage.setItem('lastPage', current);
+  }
+});
