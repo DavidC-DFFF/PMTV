@@ -12,7 +12,11 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem; /* voire 1.2rem sur mobile */
+  line-height: 1.6;
+  text-align: justify;
+  padding: 1rem;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -73,7 +77,10 @@ footer a:hover {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.8rem; /* Ajuste à ta convenance (1.2rem à 1.6rem selon écran) */
   margin-bottom: 0.2em;
 }
 
