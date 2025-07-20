@@ -2,36 +2,46 @@
   --bg: #ffffff;
   --text: #000000;
   --accent: #4444ff;
+  --background: #ffffff;
+  --button-bg: #f7f7f7;
+  --button-hover-bg: #eaeaea;
 }
 
 [data-theme="dark"] {
   --bg: #121212;
   --text: #e0e0e0;
   --accent: #8888ff;
+  --background: #1e1e1e;
+  --button-bg: #2a2a2a;
+  --button-hover-bg: #3a3a3a;
 }
 
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.2rem; /* voire 1.2rem sur mobile */
+  font-size: 1.2rem;
   line-height: 1.6;
   text-align: justify;
-  padding: 1rem;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  padding: 0;
 }
 
-header nav {
-  position: sticky;
+nav {
+  position: fixed;
   top: 0;
-  background: var(--bg);
+  left: 0;
+  right: 0;
+  height: 2.5rem;
+  background-color: var(--background);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1em;
-  border-bottom: 1px solid #ccc;
-  z-index: 10;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  z-index: 1000;
+  font-size: 0.9rem;
 }
 
 nav .logo {
@@ -44,44 +54,22 @@ nav select {
 }
 
 main {
-  padding: 2em 1em 4em;
+  padding: 2rem 1rem 2rem;
   max-width: 600px;
   margin: auto;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  display: flex;
-  width: 100%;
-  height: 3.5em;
-  border-top: 1px solid #ccc;
-}
-
-footer a {
-  flex: 1;
-  text-align: center;
-  line-height: 3.5em;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer a:hover {
-  opacity: 0.8;
-}
-.centered {
-  text-align: center;
-  margin-top: 20vh;
+article p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 h1 {
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
   font-weight: bold;
   text-align: center;
-  font-size: 1.8rem; /* Ajuste à ta convenance (1.2rem à 1.6rem selon écran) */
-  margin-bottom: 0.2em;
+  font-size: 1.8rem;
+  margin-bottom: 0.5em;
 }
 
 .subtitle {
@@ -104,7 +92,29 @@ h1 {
   opacity: 0.8;
 }
 
-article p {
-  text-align: justify;
-  hyphens: auto;
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 640px;
+  background-color: var(--background);
+}
+
+.chapter-nav a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: var(--button-bg);
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+.chapter-nav a:hover {
+  background-color: var(--button-hover-bg);
 }

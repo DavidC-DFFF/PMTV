@@ -119,7 +119,7 @@
       <p>Mais surtout, cet ouvrage est ma manière à moi de te souhaiter un joyeux anniversaire, mon Gatien…</p>
       <p>Papa</p>
       <div class="chapter-nav">
-        <a class="nav-left" href="../index.html">←</a>
+        <a class="nav-left" href="index.html">←</a>
         <a class="nav-right" href="chapitre02.html">→</a>
       </div>
     </article>
