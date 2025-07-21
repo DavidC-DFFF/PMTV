@@ -17,11 +17,17 @@ function setupThemeToggle() {
 // 📖 Redirection via la table des matières
 function goToChapter(selectElement) {
   const page = selectElement.value;
-  if (page) {
-    localStorage.setItem('lastPage', page);
-    window.location.href = page;
-  }
+  if (!page) return;
+
+  const currentPath = window.location.pathname;
+  const isInChapitres = currentPath.includes('/chapitres/');
+  const base = isInChapitres ? '' : 'chapitres/';
+  const fullPath = base + page;
+
+  localStorage.setItem('lastPage', fullPath);
+  window.location.href = fullPath;
 }
+
 
 // 📌 Mémoriser la page actuelle (sauf index.html)
 window.addEventListener('beforeunload', () => {
@@ -65,9 +71,9 @@ function loadNavbar() {
 function selectCurrentChapter() {
   const toc = document.getElementById('toc');
   if (toc) {
-    const current = window.location.pathname.replace(/^\/+/, '');
+    const current = window.location.pathname.split('/').pop();
     for (let option of toc.options) {
-      if (option.value === current || option.value.endsWith(current)) {
+      if (option.value === current) {
         option.selected = true;
         break;
       }

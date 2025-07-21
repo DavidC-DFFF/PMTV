@@ -8,12 +8,12 @@
 }
 
 [data-theme="dark"] {
-  --bg: #121212;
+  --bg: #2c2c2e;
   --text: #e0e0e0;
-  --accent: #8888ff;
-  --background: #1e1e1e;
-  --button-bg: #2a2a2a;
-  --button-hover-bg: #3a3a3a;
+  --accent: #9b9bff;
+  --background: #2c2c2e;
+  --button-bg: #3a3a3c;
+  --button-hover-bg: #48484a;
 }
 
 body {
@@ -39,6 +39,8 @@ nav.navbar {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   padding: 0 0.5rem;
   gap: 0.5rem;
   z-index: 1000;
@@ -47,7 +49,7 @@ nav.navbar {
 
 nav.navbar select {
   flex-grow: 1;
-  font-size: 1em;
+  min-width: 0;
   max-width: 100%;
   padding: 0.25rem;
   border-radius: 4px;
@@ -57,6 +59,7 @@ nav.navbar select {
 }
 
 nav.navbar button {
+  flex-shrink: 0;
   background: none;
   border: none;
   font-size: 1.2em;
@@ -66,7 +69,7 @@ nav.navbar button {
 
 /* === CONTENU === */
 main {
-  padding: 3rem 1rem 2rem; /* espace haut augmenté à cause de la navbar */
+  padding: 3rem 1rem 2rem;
   max-width: 600px;
   margin: auto;
 }
