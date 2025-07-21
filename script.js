@@ -25,34 +25,14 @@ function goToChapter(selectElement) {
 
 // 📌 Mémoriser la page actuelle (sauf index.html)
 window.addEventListener('beforeunload', () => {
-  const path = window.location.pathname.replace(/^\/+/, '');
-  if (path && !path.endsWith('index.html')) {
-    localStorage.setItem('lastPage', path);
+  const fullPath = window.location.pathname;
+  const match = fullPath.match(/\/PMTV\/(chapitres\/chapitre\d+\.html)/);
+  if (match) {
+    localStorage.setItem('lastPage', match[1]);
   }
 });
 
-// 🔄 Redirection vers la dernière page lue (depuis l’accueil)
-function setupAutoRedirectIfNeeded() {
-  const path = window.location.pathname;
-  const isHome =
-    path === '/' ||
-    path.endsWith('/index.html') ||
-    path.endsWith('/PMTV/index.html') ||
-    path === '/PMTV/';
-
-  const lastPage = localStorage.getItem('lastPage');
-  const bypass = sessionStorage.getItem('manualIndex');
-
-  if (isHome && lastPage && lastPage !== 'index.html' && !bypass) {
-    window.location.href = lastPage;
-  }
-
-  if (isHome && bypass) {
-    sessionStorage.removeItem('manualIndex');
-  }
-}
-
-// 🔗 Intercepter les clics vers le sommaire
+// 🔗 Intercepter les clics sur le lien "Sommaire"
 function setupSommaireInterception() {
   const sommaireBtn = document.querySelector('a.nav-left[href="../index.html"], a.nav-left[href="index.html"]');
   if (sommaireBtn) {
@@ -62,18 +42,18 @@ function setupSommaireInterception() {
   }
 }
 
-// 📥 Charger dynamiquement la navbar
+// 📥 Charger dynamiquement navbar.html
 function loadNavbar() {
-  const navbarContainer = document.getElementById('navbar'); // ← CORRIGÉ ICI
+  const navbarContainer = document.getElementById('navbar');
   if (navbarContainer) {
     const base = window.location.pathname.includes('/chapitres/') ? '../' : './';
     fetch(base + 'navbar.html')
       .then(response => response.text())
       .then(html => {
         navbarContainer.innerHTML = html;
-        setupThemeToggle();           // Réactiver bouton thème
-        setupSommaireInterception();  // Gérer clic sommaire
-        selectCurrentChapter();       // Marquer le chapitre actif
+        setupThemeToggle();             // Réactiver le bouton thème
+        setupSommaireInterception();    // Gérer clic sommaire
+        selectCurrentChapter();         // Marquer le chapitre actif
       });
   } else {
     setupThemeToggle();
@@ -87,7 +67,7 @@ function selectCurrentChapter() {
   if (toc) {
     const current = window.location.pathname.replace(/^\/+/, '');
     for (let option of toc.options) {
-      if (option.value === current) {
+      if (option.value === current || option.value.endsWith(current)) {
         option.selected = true;
         break;
       }
@@ -97,6 +77,5 @@ function selectCurrentChapter() {
 
 // ▶️ Initialisation au chargement
 window.addEventListener('DOMContentLoaded', () => {
-  setupAutoRedirectIfNeeded();
   loadNavbar();
 });
