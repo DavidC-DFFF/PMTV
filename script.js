@@ -25,13 +25,13 @@ function goToChapter(selectElement) {
 
 // 📌 Mémoriser la page actuelle (sauf index.html)
 window.addEventListener('beforeunload', () => {
-  const path = window.location.pathname.replace(/^\/+/, ''); // supprime les slashs initiaux
+  const path = window.location.pathname.replace(/^\/+/, '');
   if (path && !path.endsWith('index.html')) {
     localStorage.setItem('lastPage', path);
   }
 });
 
-// 🔄 Redirection vers la dernière page lue (uniquement depuis l'accueil, si pas de clic manuel)
+// 🔄 Redirection vers la dernière page lue (depuis l’accueil)
 function setupAutoRedirectIfNeeded() {
   const path = window.location.pathname;
   const isHome =
@@ -52,7 +52,7 @@ function setupAutoRedirectIfNeeded() {
   }
 }
 
-// 🔗 Intercepter les clics sur le lien "Sommaire"
+// 🔗 Intercepter les clics vers le sommaire
 function setupSommaireInterception() {
   const sommaireBtn = document.querySelector('a.nav-left[href="../index.html"], a.nav-left[href="index.html"]');
   if (sommaireBtn) {
@@ -62,18 +62,18 @@ function setupSommaireInterception() {
   }
 }
 
-// 📥 Charger dynamiquement navbar.html
+// 📥 Charger dynamiquement la navbar
 function loadNavbar() {
-  const navbarContainer = document.getElementById('navbar');
+  const navbarContainer = document.getElementById('navbar'); // ← CORRIGÉ ICI
   if (navbarContainer) {
     const base = window.location.pathname.includes('/chapitres/') ? '../' : './';
     fetch(base + 'navbar.html')
       .then(response => response.text())
       .then(html => {
         navbarContainer.innerHTML = html;
-        setupThemeToggle();             // Réactiver le bouton thème
-        setupSommaireInterception();    // Gérer clic sommaire
-        selectCurrentChapter();         // Marquer le chapitre actif
+        setupThemeToggle();           // Réactiver bouton thème
+        setupSommaireInterception();  // Gérer clic sommaire
+        selectCurrentChapter();       // Marquer le chapitre actif
       });
   } else {
     setupThemeToggle();
