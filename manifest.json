@@ -1,0 +1,21 @@
+{
+  "name": "Prête-moi ta voix",
+  "short_name": "PMTV",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#660000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "Images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
