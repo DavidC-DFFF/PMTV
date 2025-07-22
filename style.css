@@ -75,6 +75,7 @@ main {
 }
 
 article p {
+  text-indent: 1.5em;
   text-align: justify;
   hyphens: auto;
 }
@@ -123,7 +124,7 @@ main.centered h2 {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0rem auto;
   max-width: 640px;
   background-color: var(--background);
 }
@@ -172,4 +173,23 @@ main.centered {
   max-width: 80%;
   height: auto;
   margin-top: 2rem;
+}
+
+ul.tiret {
+  list-style: none;
+  padding-left: 0.5rem;
+}
+
+ul.tiret li {
+  position: relative;
+  padding-left: 1.5rem;
+  text-align: justify;
+  margin-bottom: 0rem;
+}
+
+ul.tiret li::before {
+  content: "—"; /* Tiret cadratin */
+  position: absolute;
+  left: 0;
+  color: var(--text);
 }
