@@ -28,9 +28,12 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
+      navigator.serviceWorker.register('/PMTV/service-worker.js')
+        .then(() => console.log('Service Worker enregistré ✅'))
+        .catch((error) => console.error('Service Worker erreur ❌', error));
     }
   </script>
+
 </body>
 
 </html>
