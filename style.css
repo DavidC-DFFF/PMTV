@@ -45,6 +45,8 @@ nav.navbar {
   gap: 0.5rem;
   z-index: 1000;
   font-size: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 nav.navbar select {

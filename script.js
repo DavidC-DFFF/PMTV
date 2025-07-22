@@ -28,7 +28,6 @@ function goToChapter(selectElement) {
   window.location.href = fullPath;
 }
 
-
 // 📌 Mémoriser la page actuelle (sauf index.html)
 window.addEventListener('beforeunload', () => {
   const fullPath = window.location.pathname;
@@ -56,7 +55,14 @@ function loadNavbar() {
     fetch(base + 'navbar.html')
       .then(response => response.text())
       .then(html => {
-        navbarContainer.innerHTML = html;
+        // Injecte un conteneur interne limité en largeur
+        navbarContainer.innerHTML = `
+          <nav class="navbar">
+            <div class="navbar-inner">
+              ${html}
+            </div>
+          </nav>
+        `;
         setupThemeToggle();             // Réactiver le bouton thème
         setupSommaireInterception();    // Gérer clic sommaire
         selectCurrentChapter();         // Marquer le chapitre actif
