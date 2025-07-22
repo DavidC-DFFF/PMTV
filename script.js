@@ -55,7 +55,6 @@ function loadNavbar() {
     fetch(base + 'navbar.html')
       .then(response => response.text())
       .then(html => {
-        // Injecte un conteneur interne limité en largeur
         navbarContainer.innerHTML = `
           <nav class="navbar">
             <div class="navbar-inner">
@@ -63,9 +62,9 @@ function loadNavbar() {
             </div>
           </nav>
         `;
-        setupThemeToggle();             // Réactiver le bouton thème
-        setupSommaireInterception();    // Gérer clic sommaire
-        selectCurrentChapter();         // Marquer le chapitre actif
+        setupThemeToggle();
+        setupSommaireInterception();
+        selectCurrentChapter();
       });
   } else {
     setupThemeToggle();
@@ -87,7 +86,81 @@ function selectCurrentChapter() {
   }
 }
 
+// 📊 Barre de progression globale
+function updateGlobalProgressBar() {
+  const chapterOrder = [
+    'index.html',
+    'chapitre01.html',
+    'chapitre02.html',
+    'chapitre03.html',
+    'chapitre04.html',
+    'chapitre05.html',
+    'chapitre06.html',
+    'chapitre07.html',
+    'chapitre08.html',
+    'chapitre09.html',
+    'chapitre10.html',
+    'chapitre11.html',
+    'chapitre12.html',
+    'chapitre13.html',
+    'chapitre14.html',
+    'chapitre15.html',
+    'chapitre16.html',
+    'chapitre17.html',
+    'chapitre18.html',
+    'chapitre19.html',
+    'chapitre20.html',
+    'chapitre21.html',
+    'chapitre22.html',
+    'chapitre23.html',
+    'chapitre24.html',
+    'chapitre25.html',
+    'chapitre26.html',
+    'chapitre27.html',
+    'chapitre28.html',
+    'chapitre29.html',
+    'chapitre30.html',
+    'chapitre31.html',
+    'chapitre32.html',
+    'chapitre33.html',
+    'chapitre34.html',
+    'chapitre35.html',
+    'chapitre36.html',
+    'chapitre37.html',
+    'chapitre38.html',
+    'chapitre39.html',
+    'chapitre40.html',
+    'chapitre41.html',
+    'chapitre42.html',
+    'chapitre43.html',
+    'chapitre44.html',
+    'chapitre45.html',
+    'chapitre46.html',
+    'chapitre47.html',
+    'chapitre48.html',
+    'chapitre49.html',
+    'chapitre50.html',
+    'chapitre51.html',
+    'chapitre52.html',
+    'chapitre53.html',
+    'chapitre54.html',
+    'chapitre55.html',
+    'chapitre56.html',
+    'fin.html'
+  ];
+
+  const currentPath = window.location.pathname.split('/').pop();
+  const index = chapterOrder.indexOf(currentPath);
+
+  if (index !== -1) {
+    const progressPercent = ((index + 1) / chapterOrder.length) * 100;
+    const bar = document.getElementById('global-progress');
+    if (bar) bar.style.width = progressPercent + '%';
+  }
+}
+
 // ▶️ Initialisation au chargement
 window.addEventListener('DOMContentLoaded', () => {
   loadNavbar();
+  updateGlobalProgressBar();
 });
