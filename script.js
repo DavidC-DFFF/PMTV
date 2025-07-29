@@ -65,6 +65,7 @@ function loadNavbar() {
         setupThemeToggle();
         setupSommaireInterception();
         selectCurrentChapter();
+        setupFontSizeToggle();
       });
   } else {
     setupThemeToggle();
@@ -162,5 +163,27 @@ function updateGlobalProgressBar() {
 // ▶️ Initialisation au chargement
 window.addEventListener('DOMContentLoaded', () => {
   loadNavbar();
+  setupFontSizeToggle();
   updateGlobalProgressBar();
 });
+
+function setupFontSizeToggle() {
+  const button = document.getElementById('toggle-font');
+  const sizes = ['small', 'medium', 'large'];
+  let current = localStorage.getItem('fontSize') || 'medium';
+  
+  const applySize = (size) => {
+    document.documentElement.dataset.font = size;
+    localStorage.setItem('fontSize', size);
+  };
+
+  applySize(current);
+
+  if (button) {
+    button.addEventListener('click', () => {
+      const index = (sizes.indexOf(current) + 1) % sizes.length;
+      current = sizes[index];
+      applySize(current);
+    });
+  }
+}

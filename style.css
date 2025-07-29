@@ -248,3 +248,19 @@ main.end-page {
   z-index: 9999;
   transition: width 0.4s ease;
 }
+
+html[data-font="small"] {
+  font-size: 1rem;
+}
+
+html[data-font="medium"] {
+  font-size: 1.2rem;
+}
+
+html[data-font="large"] {
+  font-size: 1.5rem;
+}
+
+html {
+  transition: font-size 0.3s ease;
+}
