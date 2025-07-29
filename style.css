@@ -250,15 +250,15 @@ main.end-page {
 }
 
 html[data-font="small"] {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 html[data-font="medium"] {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 html[data-font="large"] {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 html {
