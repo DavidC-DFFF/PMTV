@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pm-tv-cache-v1';
+const CACHE_NAME = 'pm-tv-cache-v2';
 
 const FILES_TO_CACHE = [
   '/PMTV/',
@@ -70,6 +70,7 @@ const FILES_TO_CACHE = [
   '/PMTV/chapitres/chapitre56.html',
   '/PMTV/chapitres/chapitre57.html',
   '/PMTV/chapitres/chapitre58.html',
+  '/PMTV/chapitres/chapitre59.html',
   '/PMTV/chapitres/fin.html'
 ];
 

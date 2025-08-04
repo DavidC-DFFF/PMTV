@@ -149,6 +149,7 @@ function updateGlobalProgressBar() {
     'chapitre56.html',
     'chapitre57.html',
     'chapitre58.html',
+    'chapitre59.html',
     'fin.html'
   ];
 
