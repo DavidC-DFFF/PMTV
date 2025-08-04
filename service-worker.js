@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pm-tv-cache-v2';
+const CACHE_NAME = 'pm-tv-cache-v3';
 
 const FILES_TO_CACHE = [
   '/PMTV/',
