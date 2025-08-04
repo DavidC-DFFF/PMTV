@@ -68,6 +68,8 @@ const FILES_TO_CACHE = [
   '/PMTV/chapitres/chapitre54.html',
   '/PMTV/chapitres/chapitre55.html',
   '/PMTV/chapitres/chapitre56.html',
+  '/PMTV/chapitres/chapitre57.html',
+  '/PMTV/chapitres/chapitre58.html',
   '/PMTV/chapitres/fin.html'
 ];
 
